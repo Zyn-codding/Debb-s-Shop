@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debb's Shop</title>
+
+<style>
+body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* VIDEO */
+.top-video{
+    width:100%;
+    max-height:300px;
+    object-fit:cover;
+}
+
+/* WELCOME SCREEN */
+#welcome{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:999;
+    animation: fadeOut 2s ease 3s forwards;
+}
+
+#welcome h1{
+    font-size:40px;
+    background: linear-gradient(90deg,#00f5ff,#a855f7,#ff00cc);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{ text-shadow:0 0 10px #00f5ff; }
+    to{ text-shadow:0 0 25px #ff00cc; }
+}
+
+@keyframes fadeOut{
+    to{ opacity:0; visibility:hidden; }
+}
+
+/* DASHBOARD */
+.container{
+    text-align:center;
+    padding:30px;
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.profile{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #00f5ff;
+    box-shadow:0 0 20px #00f5ff;
+    margin-bottom:20px;
+}
+
+/* WARNA WARNI */
+.gradient-text{
+    background: linear-gradient(90deg,#00f5ff,#a855f7,#ff00cc);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    font-weight:bold;
+}
+
+/* PUTIH */
+.white-text{
+    color:white;
+    font-weight:bold;
+}
+
+button{
+    padding:10px 20px;
+    margin-top:10px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+    font-weight:bold;
+    background: linear-gradient(90deg,#00f5ff,#a855f7);
+    color:white;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 15px #a855f7;
+}
+
+.telegram-logo{
+    width:60px;
+    margin:10px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.telegram-logo:hover{
+    transform:scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<div id="welcome">
+    <h1>Welcome to Debb's Shop!</h1>
+</div>
+
+<video class="top-video" autoplay muted loop>
+    <source src="https://files.catbox.moe/orsnsv.mp4" type="video/mp4">
+</video>
+
+<div class="container">
+
+<img src="https://files.catbox.moe/cx2cd1.jpg" class="profile">
+
+<h2 class="white-text">Channel WhatsApp</h2>
+<h3 class="gradient-text">𝗠𝗿. 𝗥𝗼𝗺𝗮𝗻𝘁𝗶𝗰 𝗙𝗿𝗲𝗲 𝗦𝗰</h3>
+
+<button onclick="window.open('https://whatsapp.com/channel/0029VbC4cCJ5fM5jj5yH4v1L')">
+Klik me!
+</button>
+
+<br><br>
+
+<h2 class="gradient-text">Contact me in telegram!</h2>
+
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png"
+class="telegram-logo"
+onclick="window.open('https://t.me/Debb7Xangel')">
+
+<h3 class="white-text">Channel telegram!</h3>
+<h3 class="gradient-text">22:57</h3>
+
+<button onclick="window.open('https://t.me/chpribpokoknya')">
+Click me!
+</button>
+
+</div>
+
+</body>
+  </html>
