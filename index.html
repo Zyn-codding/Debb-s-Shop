@@ -6,16 +6,60 @@
 <title>Debb Store</title>
 
 <style>
-body{
-    font-family: Arial, sans-serif;
-    background:#0f0f0f;
-    color:white;
-    text-align:center;
+*{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
+body{
+    font-family: Arial, sans-serif;
+    color:white;
+    text-align:center;
+    overflow-x:hidden;
+    background:#000;
+}
+
+/* VIDEO BACKGROUND */
+video{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-2;
+}
+
+/* OVERLAY GELAP */
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    z-index:-1;
+}
+
+/* CONTENT */
 .container{
     padding:30px 20px;
+}
+
+/* WELCOME ANIMATION */
+@keyframes fadeSlide {
+    from { opacity:0; transform:translateY(-30px); }
+    to { opacity:1; transform:translateY(0); }
+}
+
+.welcome{
+    font-size:28px;
+    font-weight:bold;
+    margin-bottom:15px;
+    color:#00ffcc;
+    text-shadow:0 0 10px #00ffcc, 0 0 20px #00ffcc;
+    animation: fadeSlide 1.5s ease forwards;
 }
 
 h1{
@@ -23,22 +67,23 @@ h1{
 }
 
 .subtitle{
-    color:#aaa;
+    color:#ccc;
     margin-bottom:25px;
 }
 
 .card{
-    background:#1a1a1a;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
     margin:15px auto;
     padding:20px;
     border-radius:15px;
     max-width:400px;
-    box-shadow:0 0 15px rgba(0,0,0,0.5);
     text-align:left;
+    box-shadow:0 0 20px rgba(0,0,0,0.6);
 }
 
 .card h3{
-    margin-top:0;
+    margin-bottom:10px;
     color:#00ffcc;
 }
 
@@ -65,11 +110,22 @@ button:hover{
 
 <body>
 
+<!-- VIDEO -->
+<video autoplay muted loop playsinline>
+    <source src="https://files.catbox.moe/orsnsv.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
 <div class="container">
+
+<!-- WELCOME -->
+<div class="welcome">✨ WELCOME TO DEBB STORE ✨</div>
 
 <h1>🔥 DEBB STORE 🔥</h1>
 <div class="subtitle">Fast Response • Trusted • Aman</div>
 
+<!-- PRODUK -->
 <div class="card">
 <h3>1. Panel Pterodactyl</h3>
 <div class="price">• Unli: 1k</div>
@@ -117,10 +173,14 @@ button:hover{
 <button>✈️ Contact Me 1</button>
 </a>
 
-<a href="https://t.me/Debb7Xangel?text=Halo%20saya%20ingin%20membeli%20produk%20di%20Debb%20Store" target="_blank">
+<a href="https://whatsapp.com/channel/0029VbC4cCJ5fM5jj5yH4v1L" target="_blank">
 <button>✈️ Contact Me 2</button>
 </a>
 
+<a href="https://t.me/Debb7Xangel?text=Halo%20saya%20ingin%20membeli%20produk%20di%20Debb%20Store" target="_blank">
+<button>✈️ Channel WhatsApp</button>
+</a>
+    
 </div>
 
 </div>
