@@ -1,237 +1,183 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Debb's Shop</title>
+<link rel="icon" href="https://files.catbox.moe/97yrp9.jpg">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
 body{
-background: radial-gradient(circle at top left,#0f2027,#0b1c2d 40%,#0a1623 80%);
-color:white;
-overflow-x:hidden;
-padding-bottom:50px;
+  background: radial-gradient(circle at top left,#0f2027,#0b1c2d 40%,#0a1623 80%);
+  color:white;
+  padding:20px;
 }
-section{display:none;padding:20px;animation:fade .4s ease;}
+
+h1{text-align:center;margin-bottom:20px;}
+
+.section{display:none;}
 .active{display:block;}
-@keyframes fade{from{opacity:0;transform:translateY(15px);}to{opacity:1;transform:translateY(0);}}
-h1,h2{margin-bottom:10px;}
-.small{font-size:13px;opacity:0.7;margin-bottom:15px;}
+
 .card{
-background:rgba(255,255,255,0.05);
-padding:20px;
-border-radius:25px;
-margin-bottom:15px;
-cursor:pointer;
-transition:.3s;
-backdrop-filter:blur(15px);
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:15px;
+  margin-bottom:15px;
+  cursor:pointer;
+  transition:.3s;
 }
 .card:hover{
-transform:scale(1.03);
-box-shadow:0 0 25px rgba(0,255,255,0.2);
+  transform:scale(1.03);
+  box-shadow:0 0 20px rgba(0,255,255,0.4);
 }
-.btn{
-margin-top:10px;
-padding:10px 20px;
-border:none;
-border-radius:30px;
-cursor:pointer;
-font-weight:bold;
-background:linear-gradient(90deg,#00f5ff,#7c3aed);
-color:white;
-transition:.3s;
-display:inline-block;
-}
-.btn:hover{transform:scale(1.07);}
-.back{
-margin-bottom:15px;
-display:inline-block;
-cursor:pointer;
-color:#00f5ff;
-}
-.media{
-width:100%;
-border-radius:20px;
-margin-bottom:15px;
-}
-.center{text-align:center;}
-.gradient-text{
-background:linear-gradient(90deg,#00f5ff,#a855f7);
--webkit-background-clip:text;
-color:transparent;
-}
-.link{
-cursor:pointer;
-font-weight:bold;
-}
-</style>
 
-<script>
-function show(id){
-document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
-document.getElementById(id).classList.add("active");
-window.scrollTo(0,0);
+.small-text{
+  font-size:13px;
+  opacity:0.7;
+  margin-top:5px;
 }
-</script>
+
+button{
+  margin-top:10px;
+  padding:8px 15px;
+  border:none;
+  border-radius:20px;
+  background:linear-gradient(90deg,#00f7ff,#b300ff);
+  color:white;
+  cursor:pointer;
+}
+button:hover{transform:scale(1.05);}
+
+.dashboard img{
+  width:100%;
+  max-width:350px;
+  border-radius:15px;
+  margin:15px 0;
+  box-shadow:0 0 25px #00f7ff;
+}
+
+.back{
+  margin-bottom:20px;
+  display:inline-block;
+  cursor:pointer;
+  color:#00f7ff;
+}
+.back:hover{color:#b300ff;}
+
+</style>
 </head>
 <body>
 
-<!-- ================= HOME ================= -->
-<section id="home" class="active">
+<h1>Debb's Digital Services 🔥</h1>
 
-<h1>Debb's Shop</h1>
-<p class="small">Diskon 15% untuk buyer baru 🔥</p>
+<!-- ================= MAIN MENU ================= -->
+<div id="main" class="section active">
 
-<div class="card" onclick="show('panel')">
-<h2>Panel Pterodactyl</h2>
-<p class="small">Untuk bot telegram / whatsapp</p>
+  <div class="card" onclick="show('panel')">
+    <h2>Panel Pterodactyl</h2>
+    <div class="small-text">Untuk bot Telegram / WhatsApp</div>
+  </div>
+
+  <div class="card" onclick="show('role')">
+    <h2>All Role Panel Pterodactyl</h2>
+    <div class="small-text">Panel lengkap berbagai role</div>
+  </div>
+
+  <div class="card" onclick="show('userbot')">
+    <h2>Userbot</h2>
+    <div class="small-text">Bot pribadi Telegram otomatis</div>
+  </div>
+
+  <div class="card" onclick="show('dapzy')">
+    <h2>SC Dapzy</h2>
+    <div class="small-text">Script via whatsapp/telegram dibuat bug seseorang!</div>
+  </div>
+
+  <div class="card" onclick="show('bug')">
+    <h2>Jasa Bug</h2>
+    <div class="small-text">Jasa uuntuk mengebug target</div>
+  </div>
+
+  <div class="card" onclick="show('vps')">
+    <h2>Reseller VPS</h2>
+    <div class="small-text">Cocok untuk kebutuhan hosting bot</div>
+  </div>
+
 </div>
 
-<div class="card" onclick="show('role')">
-<h2>All Role Panel Pterodactyl</h2>
-<p class="small">Role lengkap untuk kebutuhan panel premium.</p>
+<!-- ================= DASHBOARD PANEL ================= -->
+<div id="panel" class="section dashboard">
+  <div class="back" onclick="show('main')">⬅ Back</div>
+  <img src="https://files.catbox.moe/xz3thq.jpg">
+  <p>Unli = 1k</p>
+  <button onclick="window.open('https://t.me/DebbNotDev')">Contact Me</button>
+  <button onclick="window.open('https://t.me/Debb7Xangel')">Contact Me 2</button>
 </div>
 
-<div class="card" onclick="show('userbot')">
-<h2>Userbot</h2>
-<p class="small">Userbot stabil & siap pakai.</p>
+<!-- ================= DASHBOARD ROLE ================= -->
+<div id="role" class="section dashboard">
+  <div class="back" onclick="show('main')">⬅ Back</div>
+  <img src="https://files.catbox.moe/9r4hbo.jpg">
+  <p>Reseller : 3k</p>
+  <p>Partner : 5k</p>
+  <p>Owner : 7k</p>
+  <p>Tk : 9k</p>
+  <p>Ceo : 12k</p>
+  <p>Dev : 15k</p>
+  <button onclick="window.open('https://t.me/DebbNotDev')">Contact Me</button>
+  <button onclick="window.open('https://t.me/Debb7Xangel')">Contact Me 2</button>
 </div>
 
-<div class="card" onclick="show('sc')">
-<h2>SC Dapzy</h2>
-<p class="small">Script via whatsapp/telegram dibuat bug seseorang!</p>
+<!-- ================= DASHBOARD USERBOT ================= -->
+<div id="userbot" class="section dashboard">
+  <div class="back" onclick="show('main')">⬅ Back</div>
+  <img src="https://files.catbox.moe/qbuhf1.jpg">
+  <p>2 Bulan : 3k</p>
+  <p>Permanen : 5k</p>
+  <p>Seles Permanen : 7k</p>
+  <button onclick="window.open('https://t.me/DebbNotDev')">Contact Me</button>
+  <button onclick="window.open('https://t.me/Debb7Xangel')">Contact Me 2</button>
 </div>
 
-<div class="card" onclick="show('jasbug')">
-<h2>Jasa Bug</h2>
-<p class="small">Layanan Bug terpercaya.</p>
+<!-- ================= DASHBOARD DAPZY ================= -->
+<div id="dapzy" class="section dashboard">
+  <div class="back" onclick="show('main')">⬅ Back</div>
+  <img src="https://files.catbox.moe/p2og79.jpg">
+  <p>No Up : 15k</p>
+  <p>Full Up : 35k</p>
+  <button onclick="window.open('https://t.me/DebbNotDev')">Contact Me 1</button>
+  <button onclick="window.open('https://t.me/Debb7Xangel')">Contact Me 2</button>
 </div>
 
-<div class="card" onclick="show('vps')">
-<h2>Reseller VPS</h2>
-<p class="small">Reseller VPS murah dan stabil.</p>
+<!-- ================= DASHBOARD BUG ================= -->
+<div id="bug" class="section dashboard">
+  <div class="back" onclick="show('main')">⬅ Back</div>
+  <img src="https://files.catbox.moe/xbg8ku.jpg">
+  <p>Per Nomor : 4k</p>
+  <p>2 Nomor : 8k</p>
+  <p>3 Nomor : 12k</p>
+  <button onclick="window.open('https://t.me/DebbNotDev')">Contact Me 1</button>
+  <button onclick="window.open('https://t.me/Debb7Xangel')">Contact Me 2</button>
 </div>
 
-<div class="card" onclick="show('social')">
-<h2>Social & Channel</h2>
-<p class="small">WhatsApp, Telegram & Media Sosial</p>
+<!-- ================= DASHBOARD VPS ================= -->
+<div id="vps" class="section dashboard">
+  <div class="back" onclick="show('main')">⬅ Back</div>
+  <img src="https://files.catbox.moe/gzfv4a.jpg">
+  <p>Reseller : 10k</p>
+  <button onclick="window.open('https://t.me/DebbNotDev')">Contact Me</button>
+  <button onclick="window.open('https://t.me/Debb7Xangel')">Contact Me 2</button>
 </div>
 
-</section>
-
-<!-- PANEL -->
-<section id="panel">
-<div class="back" onclick="show('home')">← Back</div>
-<img src="https://files.catbox.moe/xz3thq.jpg" class="media">
-<h2>Panel Pterodactyl</h2>
-<p>Unli = 1k</p>
-<button class="btn" onclick="window.open('https://t.me/DebbNotDev')">Contact me</button>
-<button class="btn" onclick="window.open('https://t.me/Debb7Xangel')">Contact me 2</button>
-</section>
-
-<!-- ROLE -->
-<section id="role">
-<div class="back" onclick="show('home')">← Back</div>
-<img src="https://files.catbox.moe/9r4hbo.jpg" class="media">
-<h2>All Role Panel</h2>
-<p>Reseller : 3K</p>
-<p>Partner : 5k</p>
-<p>Owner : 7k</p>
-<p>Tk : 9k</p>
-<p>Ceo : 12k</p>
-<p>Dev : 15k</p>
-<button class="btn" onclick="window.open('https://t.me/DebbNotDev')">Contact me</button>
-<button class="btn" onclick="window.open('https://t.me/Debb7Xangel')">Contact me 2</button>
-</section>
-
-<!-- USERBOT -->
-<section id="userbot">
-<div class="back" onclick="show('home')">← Back</div>
-<img src="https://files.catbox.moe/qbuhf1.jpg" class="media">
-<h2>Userbot</h2>
-<p>2 Bulan : 3k</p>
-<p>Permanen : 5k</p>
-<p>Seles permanen : 7k</p>
-<button class="btn" onclick="window.open('https://t.me/DebbNotDev')">Contact me</button>
-<button class="btn" onclick="window.open('https://t.me/Debb7Xangel')">Contact me 2</button>
-</section>
-
-<!-- SC -->
-<section id="sc">
-<div class="back" onclick="show('home')">← Back</div>
-<img src="https://files.catbox.moe/p2og79.jpg" class="media">
-<h2>SC Dapzy</h2>
-<p>No up : 15k</p>
-<p>Full up : 35k</p>
-<button class="btn" onclick="window.open('https://t.me/DebbNotDev')">Contact me</button>
-<button class="btn" onclick="window.open('https://t.me/Debb7Xangel')">Contact me 2</button>
-</section>
-
-<!-- JASA BUG -->
-<section id="jasbug">
-<div class="back" onclick="show('home')">← Back</div>
-<img src="https://files.catbox.moe/xbg8ku.jpg" class="media">
-<h2>Jasa Bug</h2>
-<p>Per Nomor : 4k</p>
-<p>2 Nomor: 8k</p>
-<p>3 Nomor : 12k</p>
-<button class="btn" onclick="window.open('https://t.me/DebbNotDev')">Contact me</button>
-<button class="btn" onclick="window.open('https://t.me/Debb7Xangel')">Contact me 2</button>
-</section>
-
-<!-- VPS -->
-<section id="vps">
-<div class="back" onclick="show('home')">← Back</div>
-<img src="https://files.catbox.moe/gzfv4a.jpg" class="media">
-<h2>Reseller VPS</h2>
-<p>Reseller : 10k</p>
-<button class="btn" onclick="window.open('https://t.me/DebbNotDev')">Contact me</button>
-<button class="btn" onclick="window.open('https://t.me/Debb7Xangel')">Contact me 2</button>
-</section>
-
-<!-- SOCIAL -->
-<section id="social">
-<div class="back" onclick="show('home')">← Back</div>
-
-<div class="card center">
-<h2>Channel WhatsApp</h2>
-<h1 class="gradient-text">Mr. Romantic Free Sc</h1>
-<button class="btn">Join Sekarang</button>
-</div>
-
-<div class="card center">
-<h2 class="gradient-text">Contact me in Telegram</h2>
-<p>@DebbNotDev</p>
-<p>@Debb7Xangel</p>
-<button class="btn" onclick="window.open('https://t.me/DebbNotDev')">Chat Owner 1</button>
-<button class="btn" onclick="window.open('https://t.me/Debb7Xangel')">Chat Owner 2</button>
-</div>
-
-<div class="card center">
-<h2>Channel Telegram</h2>
-<p class="gradient-text">Online Update</p>
-<button class="btn">Join Channel</button>
-</div>
-
-<div class="card center">
-<h2>Follow Me</h2>
-<p>YouTube :
-<span class="link" style="color:#ff0000;"
-onclick="window.open('https://www.youtube.com/@DebbNotDev')">
-Click Here
-</span>
-</p>
-
-<p>TikTok :
-<span class="link" style="color:#a855f7;"
-onclick="window.open('https://www.tiktok.com/@shunotdev')">
-Click Here
-</span>
-</p>
-</div>
-
-</section>
+<script>
+function show(id){
+  document.querySelectorAll('.section').forEach(sec=>{
+    sec.classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
+}
+</script>
 
 </body>
 </html>
