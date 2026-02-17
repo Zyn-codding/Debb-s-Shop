@@ -6,263 +6,232 @@
 <title>Debb's Shop</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
 body{
 background: radial-gradient(circle at top left,#0f2027,#0b1c2d 40%,#0a1623 80%);
 color:white;
 overflow-x:hidden;
+padding-bottom:50px;
 }
-
-/* ===== WELCOME ===== */
-#welcome{
-position:fixed;
-inset:0;
-background:#0a1623;
-display:flex;
-align-items:center;
-justify-content:center;
-z-index:999;
-animation:fadeOut 1.5s ease 3s forwards;
-}
-
-#welcome h1{
-font-size:42px;
-background: linear-gradient(90deg,#00f5ff,#7c3aed,#ff00cc);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-from{ text-shadow:0 0 20px #00f5ff;}
-to{ text-shadow:0 0 35px #ff00cc;}
-}
-
-@keyframes fadeOut{
-to{opacity:0;visibility:hidden;}
-}
-
-/* ===== HEADER ===== */
-.header{
-display:flex;
-align-items:center;
-gap:15px;
-padding:25px;
-}
-
-.logo{
-width:55px;
-height:55px;
-border-radius:15px;
-object-fit:cover;
-}
-
-.brand h2{
-background: linear-gradient(90deg,#00f5ff,#7c3aed);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.brand p{
-font-size:13px;
-opacity:0.7;
-}
-
-/* ===== VIDEO ===== */
-.top-video{
-width:100%;
-height:220px;
-object-fit:cover;
-border-radius:25px;
-margin:10px 0;
-}
-
-/* ===== GALLERY CARD ===== */
-.gallery{
-background: rgba(255,255,255,0.05);
-border-radius:25px;
+section{display:none;padding:20px;animation:fade .4s ease;}
+.active{display:block;}
+@keyframes fade{from{opacity:0;transform:translateY(15px);}to{opacity:1;transform:translateY(0);}}
+h1,h2{margin-bottom:10px;}
+.small{font-size:13px;opacity:0.7;margin-bottom:15px;}
+.card{
+background:rgba(255,255,255,0.05);
 padding:20px;
-margin:20px;
+border-radius:25px;
+margin-bottom:15px;
+cursor:pointer;
+transition:.3s;
 backdrop-filter:blur(15px);
-box-shadow:0 0 40px rgba(0,255,255,0.05);
 }
-
-/* ===== BADGE ===== */
-.badge{
-margin:20px auto;
-display:inline-block;
-padding:10px 18px;
-border-radius:25px;
-border:1px solid rgba(0,255,255,0.4);
-background:rgba(0,255,255,0.05);
-color:#00f5ff;
-font-size:14px;
+.card:hover{
+transform:scale(1.03);
+box-shadow:0 0 25px rgba(0,255,255,0.2);
 }
-
-/* ===== HERO ===== */
-.hero{
-padding:20px;
-}
-
-.hero h1{
-font-size:38px;
-line-height:1.2;
-}
-
-.gradient{
-background: linear-gradient(90deg,#00f5ff,#7c3aed,#ff00cc);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.desc{
-margin-top:15px;
-opacity:0.85;
-font-size:15px;
-line-height:1.6;
-}
-
-.highlight{
-color:#00f5ff;
-font-weight:bold;
-}
-
-/* ===== STATS ===== */
-.stats{
-display:flex;
-justify-content:space-around;
-margin:30px 0;
-text-align:center;
-}
-
-.stats h2{
-color:#00f5ff;
-}
-
-.stats p{
-font-size:13px;
-opacity:0.6;
-}
-
-/* ===== SECTION CARD ===== */
-.section-card{
-background: rgba(255,255,255,0.04);
-margin:20px;
-padding:25px;
-border-radius:25px;
-backdrop-filter:blur(10px);
-box-shadow:0 0 30px rgba(124,58,237,0.08);
-text-align:center;
-}
-
 .btn{
-margin-top:15px;
+margin-top:10px;
 padding:10px 20px;
 border:none;
 border-radius:30px;
 cursor:pointer;
 font-weight:bold;
-background: linear-gradient(90deg,#00f5ff,#7c3aed);
+background:linear-gradient(90deg,#00f5ff,#7c3aed);
 color:white;
-transition:0.3s;
+transition:.3s;
+display:inline-block;
 }
-
-.btn:hover{
-transform:scale(1.08);
-box-shadow:0 0 20px #7c3aed;
+.btn:hover{transform:scale(1.07);}
+.back{
+margin-bottom:15px;
+display:inline-block;
+cursor:pointer;
+color:#00f5ff;
+}
+.media{
+width:100%;
+border-radius:20px;
+margin-bottom:15px;
+}
+.center{text-align:center;}
+.gradient-text{
+background:linear-gradient(90deg,#00f5ff,#a855f7);
+-webkit-background-clip:text;
+color:transparent;
+}
+.link{
+cursor:pointer;
+font-weight:bold;
 }
 </style>
-</head>
 
+<script>
+function show(id){
+document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+window.scrollTo(0,0);
+}
+</script>
+</head>
 <body>
 
-<div id="welcome">
-<h1>Welcome to Debb's Shop!</h1>
+<!-- ================= HOME ================= -->
+<section id="home" class="active">
+
+<h1>Debb's Shop</h1>
+<p class="small">Diskon 15% untuk buyer baru 🔥</p>
+
+<div class="card" onclick="show('panel')">
+<h2>Panel Pterodactyl</h2>
+<p class="small">Untuk bot telegram / whatsapp</p>
 </div>
 
-<div class="header">
-<img src="https://files.catbox.moe/cx2cd1.jpg" class="logo">
-<div class="brand">
-<h2>Debb's Shop</h2>
-<p>Premium Digital Services Indonesia</p>
-</div>
+<div class="card" onclick="show('role')">
+<h2>All Role Panel Pterodactyl</h2>
+<p class="small">Role lengkap untuk kebutuhan panel premium.</p>
 </div>
 
-<div class="gallery">
-<video class="top-video" autoplay muted loop>
-<source src="https://files.catbox.moe/orsnsv.mp4" type="video/mp4">
-</video>
+<div class="card" onclick="show('userbot')">
+<h2>Userbot</h2>
+<p class="small">Userbot stabil & siap pakai.</p>
 </div>
 
-<center>
-<div class="badge">★ #1 Digital Panel & Services Terpercaya</div>
-</center>
+<div class="card" onclick="show('sc')">
+<h2>SC Dapzy</h2>
+<p class="small">Script via whatsapp/telegram dibuat bug seseorang!</p>
+</div>
 
-<div class="hero">
-<h1>
-Panel & Digital<br>
-<span class="gradient">Services Terbaik</span>
-</h1>
+<div class="card" onclick="show('jasbug')">
+<h2>Jasa Bug</h2>
+<p class="small">Layanan Bug terpercaya.</p>
+</div>
 
-<p class="desc">
-Debb's Shop menyediakan 
-<span class="highlight">Panel Pterodactyl Stabil</span>, 
-<span class="highlight">Role Panel</span>, 
-<span class="highlight">Userbot</span>, 
-<span class="highlight">Jasbug</span>, 
-<span class="highlight">SC Dapzy</span>, 
-serta <span class="highlight">Channel WhatsApp</span>.  
+<div class="card" onclick="show('vps')">
+<h2>Reseller VPS</h2>
+<p class="small">Reseller VPS murah dan stabil.</p>
+</div>
 
-Terpercaya, fast respon, aman, dan support 24/7 untuk semua kebutuhan digital kamu.  
+<div class="card" onclick="show('social')">
+<h2>Social & Channel</h2>
+<p class="small">WhatsApp, Telegram & Media Sosial</p>
+</div>
 
-🔥 <span class="gradient">Diskon 15% untuk Buyer Baru</span>
+</section>
+
+<!-- PANEL -->
+<section id="panel">
+<div class="back" onclick="show('home')">← Back</div>
+<img src="https://files.catbox.moe/xz3thq.jpg" class="media">
+<h2>Panel Pterodactyl</h2>
+<p>Unli = 1k</p>
+<button class="btn" onclick="window.open('https://t.me/DebbNotDev')">Contact me</button>
+<button class="btn" onclick="window.open('https://t.me/Debb7Xangel')">Contact me 2</button>
+</section>
+
+<!-- ROLE -->
+<section id="role">
+<div class="back" onclick="show('home')">← Back</div>
+<img src="https://files.catbox.moe/9r4hbo.jpg" class="media">
+<h2>All Role Panel</h2>
+<p>Reseller : 3K</p>
+<p>Partner : 5k</p>
+<p>Owner : 7k</p>
+<p>Tk : 9k</p>
+<p>Ceo : 12k</p>
+<p>Dev : 15k</p>
+<button class="btn" onclick="window.open('https://t.me/DebbNotDev')">Contact me</button>
+<button class="btn" onclick="window.open('https://t.me/Debb7Xangel')">Contact me 2</button>
+</section>
+
+<!-- USERBOT -->
+<section id="userbot">
+<div class="back" onclick="show('home')">← Back</div>
+<img src="https://files.catbox.moe/qbuhf1.jpg" class="media">
+<h2>Userbot</h2>
+<p>2 Bulan : 3k</p>
+<p>Permanen : 5k</p>
+<p>Seles permanen : 7k</p>
+<button class="btn" onclick="window.open('https://t.me/DebbNotDev')">Contact me</button>
+<button class="btn" onclick="window.open('https://t.me/Debb7Xangel')">Contact me 2</button>
+</section>
+
+<!-- SC -->
+<section id="sc">
+<div class="back" onclick="show('home')">← Back</div>
+<img src="https://files.catbox.moe/p2og79.jpg" class="media">
+<h2>SC Dapzy</h2>
+<p>No up : 15k</p>
+<p>Full up : 35k</p>
+<button class="btn" onclick="window.open('https://t.me/DebbNotDev')">Contact me</button>
+<button class="btn" onclick="window.open('https://t.me/Debb7Xangel')">Contact me 2</button>
+</section>
+
+<!-- JASA BUG -->
+<section id="jasbug">
+<div class="back" onclick="show('home')">← Back</div>
+<img src="https://files.catbox.moe/xbg8ku.jpg" class="media">
+<h2>Jasa Bug</h2>
+<p>Per Nomor : 4k</p>
+<p>2 Nomor: 8k</p>
+<p>3 Nomor : 12k</p>
+<button class="btn" onclick="window.open('https://t.me/DebbNotDev')">Contact me</button>
+<button class="btn" onclick="window.open('https://t.me/Debb7Xangel')">Contact me 2</button>
+</section>
+
+<!-- VPS -->
+<section id="vps">
+<div class="back" onclick="show('home')">← Back</div>
+<img src="https://files.catbox.moe/gzfv4a.jpg" class="media">
+<h2>Reseller VPS</h2>
+<p>Reseller : 10k</p>
+<button class="btn" onclick="window.open('https://t.me/DebbNotDev')">Contact me</button>
+<button class="btn" onclick="window.open('https://t.me/Debb7Xangel')">Contact me 2</button>
+</section>
+
+<!-- SOCIAL -->
+<section id="social">
+<div class="back" onclick="show('home')">← Back</div>
+
+<div class="card center">
+<h2>Channel WhatsApp</h2>
+<h1 class="gradient-text">Mr. Romantic Free Sc</h1>
+<button class="btn">Join Sekarang</button>
+</div>
+
+<div class="card center">
+<h2 class="gradient-text">Contact me in Telegram</h2>
+<p>@DebbNotDev</p>
+<p>@Debb7Xangel</p>
+<button class="btn" onclick="window.open('https://t.me/DebbNotDev')">Chat Owner 1</button>
+<button class="btn" onclick="window.open('https://t.me/Debb7Xangel')">Chat Owner 2</button>
+</div>
+
+<div class="card center">
+<h2>Channel Telegram</h2>
+<p class="gradient-text">Online Update</p>
+<button class="btn">Join Channel</button>
+</div>
+
+<div class="card center">
+<h2>Follow Me</h2>
+<p>YouTube :
+<span class="link" style="color:#ff0000;"
+onclick="window.open('https://www.youtube.com/@DebbNotDev')">
+Click Here
+</span>
+</p>
+
+<p>TikTok :
+<span class="link" style="color:#a855f7;"
+onclick="window.open('https://www.tiktok.com/@shunotdev')">
+Click Here
+</span>
 </p>
 </div>
 
-<div class="stats">
-<div>
-<h2>99.9%</h2>
-<p>Trusted</p>
-</div>
-<div>
-<h2>&lt;1m</h2>
-<p>Fast Response</p>
-</div>
-<div>
-<h2>24/7</h2>
-<p>Online Support</p>
-</div>
-</div>
-
-<div class="section-card">
-<h3>Channel WhatsApp</h3>
-<h2 class="gradient">𝗠𝗿. 𝗥𝗼𝗺𝗮𝗻𝘁𝗶𝗰 𝗙𝗿𝗲𝗲 𝗦𝗰</h2>
-<button class="btn" onclick="window.open('https://whatsapp.com/channel/0029VbC4cCJ5fM5jj5yH4v1L')">
-Join Sekarang
-</button>
-</div>
-
-<div class="section-card">
-<h3 class="gradient">Contact me in Telegram</h3>
-<p>@Debb7Xangel</p>
-<button class="btn" onclick="window.open('https://t.me/Debb7Xangel')">
-Chat Owner
-</button>
-
-<br><br>
-
-<h3>Channel Telegram</h3>
-<p class="gradient">22:57 Online Update</p>
-<button class="btn" onclick="window.open('https://t.me/chpribpokoknya')">
-Join Channel
-</button>
-</div>
+</section>
 
 </body>
 </html>
