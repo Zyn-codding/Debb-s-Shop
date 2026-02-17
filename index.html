@@ -3,199 +3,265 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Debb Store</title>
+<title>Debb's Shop</title>
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
 }
 
 body{
-    font-family: Arial, sans-serif;
-    color:white;
-    text-align:center;
-    overflow-x:hidden;
-    background:#000;
+background: radial-gradient(circle at top left,#0f2027,#0b1c2d 40%,#0a1623 80%);
+color:white;
+overflow-x:hidden;
 }
 
-/* VIDEO BACKGROUND */
-video{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    z-index:-2;
+/* ===== WELCOME ===== */
+#welcome{
+position:fixed;
+inset:0;
+background:#0a1623;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:999;
+animation:fadeOut 1.5s ease 3s forwards;
 }
 
-/* OVERLAY GELAP */
-.overlay{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.7);
-    z-index:-1;
+#welcome h1{
+font-size:42px;
+background: linear-gradient(90deg,#00f5ff,#7c3aed,#ff00cc);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:glow 2s infinite alternate;
 }
 
-/* CONTENT */
-.container{
-    padding:30px 20px;
+@keyframes glow{
+from{ text-shadow:0 0 20px #00f5ff;}
+to{ text-shadow:0 0 35px #ff00cc;}
 }
 
-/* WELCOME ANIMATION */
-@keyframes fadeSlide {
-    from { opacity:0; transform:translateY(-30px); }
-    to { opacity:1; transform:translateY(0); }
+@keyframes fadeOut{
+to{opacity:0;visibility:hidden;}
 }
 
-.welcome{
-    font-size:28px;
-    font-weight:bold;
-    margin-bottom:15px;
-    color:#00ffcc;
-    text-shadow:0 0 10px #00ffcc, 0 0 20px #00ffcc;
-    animation: fadeSlide 1.5s ease forwards;
+/* ===== HEADER ===== */
+.header{
+display:flex;
+align-items:center;
+gap:15px;
+padding:25px;
 }
 
-h1{
-    margin-bottom:5px;
+.logo{
+width:55px;
+height:55px;
+border-radius:15px;
+object-fit:cover;
 }
 
-.subtitle{
-    color:#ccc;
-    margin-bottom:25px;
+.brand h2{
+background: linear-gradient(90deg,#00f5ff,#7c3aed);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
-.card{
-    background:rgba(0,0,0,0.6);
-    backdrop-filter: blur(5px);
-    margin:15px auto;
-    padding:20px;
-    border-radius:15px;
-    max-width:400px;
-    text-align:left;
-    box-shadow:0 0 20px rgba(0,0,0,0.6);
+.brand p{
+font-size:13px;
+opacity:0.7;
 }
 
-.card h3{
-    margin-bottom:10px;
-    color:#00ffcc;
+/* ===== VIDEO ===== */
+.top-video{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:25px;
+margin:10px 0;
 }
 
-.price{
-    margin:5px 0;
+/* ===== GALLERY CARD ===== */
+.gallery{
+background: rgba(255,255,255,0.05);
+border-radius:25px;
+padding:20px;
+margin:20px;
+backdrop-filter:blur(15px);
+box-shadow:0 0 40px rgba(0,255,255,0.05);
 }
 
-button{
-    padding:12px 25px;
-    margin:8px;
-    border:none;
-    border-radius:25px;
-    background:linear-gradient(90deg,#229ED9,#1c7cb6);
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
+/* ===== BADGE ===== */
+.badge{
+margin:20px auto;
+display:inline-block;
+padding:10px 18px;
+border-radius:25px;
+border:1px solid rgba(0,255,255,0.4);
+background:rgba(0,255,255,0.05);
+color:#00f5ff;
+font-size:14px;
 }
 
-button:hover{
-    opacity:0.9;
+/* ===== HERO ===== */
+.hero{
+padding:20px;
+}
+
+.hero h1{
+font-size:38px;
+line-height:1.2;
+}
+
+.gradient{
+background: linear-gradient(90deg,#00f5ff,#7c3aed,#ff00cc);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.desc{
+margin-top:15px;
+opacity:0.85;
+font-size:15px;
+line-height:1.6;
+}
+
+.highlight{
+color:#00f5ff;
+font-weight:bold;
+}
+
+/* ===== STATS ===== */
+.stats{
+display:flex;
+justify-content:space-around;
+margin:30px 0;
+text-align:center;
+}
+
+.stats h2{
+color:#00f5ff;
+}
+
+.stats p{
+font-size:13px;
+opacity:0.6;
+}
+
+/* ===== SECTION CARD ===== */
+.section-card{
+background: rgba(255,255,255,0.04);
+margin:20px;
+padding:25px;
+border-radius:25px;
+backdrop-filter:blur(10px);
+box-shadow:0 0 30px rgba(124,58,237,0.08);
+text-align:center;
+}
+
+.btn{
+margin-top:15px;
+padding:10px 20px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+font-weight:bold;
+background: linear-gradient(90deg,#00f5ff,#7c3aed);
+color:white;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 20px #7c3aed;
 }
 </style>
 </head>
 
 <body>
 
-<!-- VIDEO -->
-<video autoplay muted loop playsinline>
-    <source src="https://files.catbox.moe/vv5ppy.mp4" type="video/mp4">
+<div id="welcome">
+<h1>Welcome to Debb's Shop!</h1>
+</div>
+
+<div class="header">
+<img src="https://files.catbox.moe/cx2cd1.jpg" class="logo">
+<div class="brand">
+<h2>Debb's Shop</h2>
+<p>Premium Digital Services Indonesia</p>
+</div>
+</div>
+
+<div class="gallery">
+<video class="top-video" autoplay muted loop>
+<source src="https://files.catbox.moe/orsnsv.mp4" type="video/mp4">
 </video>
-
-<div class="overlay"></div>
-
-<div class="container">
-
-<!-- WELCOME -->
-<div class="welcome">✨ WELCOME TO DEBB STORE ✨</div>
-
-<h1>🔥 DEBB STORE 🔥</h1>
-<div class="subtitle">Fast Response • Trusted • Aman</div>
-
-<!-- PRODUK -->
-<div class="card">
-<h3>1. Panel Pterodactyl</h3>
-<div class="price">• Unli: 1k</div>
 </div>
 
-<div class="card">
-<h3>2. All Role Panel Pterodactyl</h3>
-<div class="price">• Reseller: 3k</div>
-<div class="price">• Partner: 5k</div>
-<div class="price">• Owner: 7k</div>
-<div class="price">• Tk: 9k</div>
-<div class="price">• Ceo: 12k</div>
-<div class="price">• Dev: 15k</div>
+<center>
+<div class="badge">★ #1 Digital Panel & Services Terpercaya</div>
+</center>
+
+<div class="hero">
+<h1>
+Panel & Digital<br>
+<span class="gradient">Services Terbaik</span>
+</h1>
+
+<p class="desc">
+Debb's Shop menyediakan 
+<span class="highlight">Panel Pterodactyl Stabil</span>, 
+<span class="highlight">Role Panel Eksklusif</span>, 
+<span class="highlight">Ubot Berkualitas</span>, 
+<span class="highlight">Jasbug Aman</span>, 
+<span class="highlight">SC Dapzy Original</span>, 
+serta <span class="highlight">Channel WhatsApp Premium</span>.  
+
+Terpercaya, fast respon, aman, dan support 24/7 untuk semua kebutuhan digital kamu.  
+
+🔥 <span class="gradient">Diskon 15% untuk Buyer Baru</span>
+</p>
 </div>
 
-<div class="card">
-<h3>3. Userbot</h3>
-<div class="price">• 2 Bulan: 3k</div>
-<div class="price">• Permanen: 5k</div>
-<div class="price">• Seles permanen: 7k</div>
+<div class="stats">
+<div>
+<h2>99.9%</h2>
+<p>Trusted</p>
+</div>
+<div>
+<h2>&lt;1m</h2>
+<p>Fast Response</p>
+</div>
+<div>
+<h2>24/7</h2>
+<p>Online Support</p>
+</div>
 </div>
 
-<div class="card">
-<h3>4. Sc dapzy</h3>
-<div class="price">• No up: 15k</div>
-<div class="price">• Full up: 35k</div>
+<div class="section-card">
+<h3>Channel WhatsApp</h3>
+<h2 class="gradient">𝗠𝗿. 𝗥𝗼𝗺𝗮𝗻𝘁𝗶𝗰 𝗙𝗿𝗲𝗲 𝗦𝗰</h2>
+<button class="btn" onclick="window.open('https://whatsapp.com/channel/0029VbC4cCJ5fM5jj5yH4v1L')">
+Join Sekarang
+</button>
 </div>
 
-<div class="card">
-<h3>5. Jasbug</h3>
-<div class="price">• Per nomor: 4k</div>
-<div class="price">• 2 nomor: 8k</div>
-<div class="price">• 3 nomor: 12k</div>
-</div>
+<div class="section-card">
+<h3 class="gradient">Contact me in Telegram</h3>
+<p>@Debb7Xangel</p>
+<button class="btn" onclick="window.open('https://t.me/Debb7Xangel')">
+Chat Owner
+</button>
 
-<div class="card">
-<h3>6. Reseller VPS</h3>
-<div class="price">• Reseller: 10k</div>
-</div>
+<br><br>
 
-<!-- CONTACT -->
-<div style="margin-top:30px;">
-
-<a href="https://t.me/DebbNotDev?text=Halo%20saya%20ingin%20membeli%20produk%20di%20Debb%20Store" target="_blank">
-<button>✈️ Contact Me 1</button>
-</a>
-
-<a href="https://whatsapp.com/channel/0029VbC4cCJ5fM5jj5yH4v1L" target="_blank">
-<button>✈️ Contact Me 2</button>
-</a>
-
-<!-- CHANNEL WHATSAPP -->
-<div style="margin:20px 0;">
-    <a href="https://whatsapp.com/channel/0029VbC4cCJ5fM5jj5yH4v1L" target="_blank">
-        <button style="
-            padding:12px 25px;
-            margin:8px;
-            border:none;
-            border-radius:25px;
-            background:green;
-            color:white;
-            font-weight:bold;
-            cursor:pointer;">
-            💬 Channel WhatsApp
-        </button>
-    </a>
-    </div>
-    
-</div>
-
+<h3>Channel Telegram</h3>
+<p class="gradient">22:57 Online Update</p>
+<button class="btn" onclick="window.open('https://t.me/chpribpokoknya')">
+Join Channel
+</button>
 </div>
 
 </body>
